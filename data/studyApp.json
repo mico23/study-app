@@ -1,0 +1,38 @@
+[
+    {
+        "courses": [
+            {
+                "courseName": "CPSC210",
+                "effort": [
+                    {
+                        "date": "2020-11-19",
+                        "hours": 8
+                    },
+                    {
+                        "date": "2020-11-19",
+                        "hours": 7
+                    }
+                ],
+                "outcome": 80
+            },
+            {
+                "courseName": "MATH312",
+                "effort": [],
+                "outcome": 0
+            },
+            {
+                "courseName": "PHIL300",
+                "effort": [{
+                    "date": "2020-11-20",
+                    "hours": 90
+                }],
+                "outcome": 0
+            }
+        ],
+        "userName": "MIKE"
+    },
+    {
+        "courses": [],
+        "userName": "PETER"
+    }
+]

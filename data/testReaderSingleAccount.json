@@ -1,0 +1,20 @@
+[
+  {
+    "courses": [
+      {
+        "courseName": "CPSC121",
+        "effort": [{
+          "date": "2020-10-29",
+          "hours": 8
+        }],
+        "outcome": 85
+      },
+      {
+        "courseName": "CPSC210",
+        "effort": [],
+        "outcome": 90
+      }
+    ],
+    "userName": "MIKE"
+  }
+]
