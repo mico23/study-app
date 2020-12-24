@@ -5,6 +5,5 @@ public class Main {
         //to run the console app, please uncomment line 6 and comment out line 7
         //new StudyApp();
         new GraphicStudyApp();
-
     }
 }

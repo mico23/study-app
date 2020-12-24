@@ -80,7 +80,7 @@ public class ConsoleStudyApp {
     private void processMenuCommand(String command) {
         if (command.equals("1")) {
             Account account = createAccount();
-            if (account.getUserName() != null) {
+            if (account != null && account.getUserName() != null) {
                 runAccount(account);
             } else {
                 System.out.println("Failed to create your account.");
@@ -126,11 +126,13 @@ public class ConsoleStudyApp {
     // MODIFIES: this
     // EFFECTS: processes user command and create a new account
     private Account createAccount() {
-        Account user = null;
         System.out.println("Please entre your user name");
         String userName = input.nextLine();
         userName = userName.replace("\\s+", "");
-        if (!userName.equals("")) {
+
+        Account user = null;
+        Account checkExistence = new Account(userName);
+        if (!userName.equals("") && !accounts.contains(checkExistence)) {
             user = new Account(userName);
             accounts.add(user);
             System.out.println("\nYour account has been created!");
