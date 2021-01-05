@@ -15,8 +15,8 @@ public class GoBackButton extends Button implements ActionListener {
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
-    public GoBackButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect) {
-        super(frame, panel, soundEffect);
+    public GoBackButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -36,7 +36,7 @@ public class GoBackButton extends Button implements ActionListener {
     //          play sound when the button is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
-        soundEffect.play();
+        frame.getSoundEffect().play();
         if (e.getActionCommand().equals("goBack")) {
             if (frame.getCurrentPage().equals(GraphicStudyApp.Page.MAIN)) {
                 frame.removeButtons();

@@ -111,9 +111,9 @@ public class GraphicStudyApp extends JFrame {
     // EFFECTS: render the buttons on the first page when the app lunches
     public void renderWelcomeButtons() {
         contentText.setText(DEFAULT_TEXT);
-        new CreateAccountButton(this, buttonArea, soundEffect);
-        new LookForAccountButton(this, buttonArea, soundEffect);
-        new ExitButton(this, buttonArea, soundEffect);
+        new CreateAccountButton(this, buttonArea);
+        new LookForAccountButton(this, buttonArea);
+        new ExitButton(this, buttonArea);
         refreshWindow();
     }
 
@@ -123,8 +123,8 @@ public class GraphicStudyApp extends JFrame {
         renderTitleOfContentArea();
         textField = new JTextField();
         contentArea.add(textField);
-        new SubmitButton(this, buttonArea, soundEffect, accounts);
-        new GoBackButton(this, buttonArea, soundEffect);
+        new SubmitButton(this, buttonArea);
+        new GoBackButton(this, buttonArea);
         refreshWindow();
     }
 
@@ -157,11 +157,11 @@ public class GraphicStudyApp extends JFrame {
         int numberOfCourses = currentAccount.getListOfCourse().size();
         titleText.setText(DEFAULT_TITLE);
         contentText.setText("You have " + numberOfCourses + " courses.");
-        new CourseDropDownList(this, buttonArea, currentAccount);
-        new AddCourseButton(this, buttonArea, soundEffect);
-        new CalculateAvgButton(this, buttonArea, soundEffect, currentAccount);
-        new SaveButton(this, buttonArea, soundEffect, accounts);
-        new GoBackButton(this, buttonArea, soundEffect);
+        new CourseDropDownList(this, buttonArea);
+        new AddCourseButton(this, buttonArea);
+        new CalculateAvgButton(this, buttonArea);
+        new SaveButton(this, buttonArea);
+        new GoBackButton(this, buttonArea);
         refreshWindow();
     }
 
@@ -183,10 +183,10 @@ public class GraphicStudyApp extends JFrame {
         JLabel courseDetails = new JLabel(buildCourseDetails(course));
         scrollText = new JScrollPane(courseDetails);
         contentArea.add(scrollText);
-        new AddHoursButton(this, buttonArea, soundEffect);
-        new SetOutcomeButton(this, buttonArea, soundEffect);
-        new RemoveCourseButton(this, buttonArea, soundEffect);
-        new GoBackButton(this, buttonArea, soundEffect);
+        new AddHoursButton(this, buttonArea);
+        new SetOutcomeButton(this, buttonArea);
+        new RemoveCourseButton(this, buttonArea);
+        new GoBackButton(this, buttonArea);
         refreshWindow();
     }
 
@@ -299,5 +299,10 @@ public class GraphicStudyApp extends JFrame {
     // EFFECTS: return the current course
     public Course getCurrentCourse() {
         return this.currentCourse;
+    }
+
+    // EFFECTS: return the sound effect
+    public SoundEffect getSoundEffect() {
+        return this.soundEffect;
     }
 }

@@ -28,7 +28,6 @@ public class ConsoleAccountManager {
             runCourseMenu(account);
         } else {
             System.out.println("\nYou do not have any saved courses.");
-            nextMenu();
         }
     }
 
@@ -74,7 +73,6 @@ public class ConsoleAccountManager {
             Course course = new Course(courseName);
             account.addCourse(course);
             System.out.println("\nCourse saved!");
-            nextMenu();
         } else {
             System.out.println("\nInvalid Input!");
         }
@@ -151,7 +149,6 @@ public class ConsoleAccountManager {
                 System.out.println("\nCannot find your course.");
             }
         }
-        nextMenu();
     }
 
     // EFFECTS: retrieve the course efforts if there are efforts saved,
@@ -170,7 +167,6 @@ public class ConsoleAccountManager {
     public void calculateAverage(Account account) {
         System.out.println("\nYour overall average is:");
         System.out.println(account.calculateAverage());
-        nextMenu();
         runCourseMenu(account);
     }
 
@@ -190,14 +186,9 @@ public class ConsoleAccountManager {
         return null;
     }
 
-    // EFFECTS: prompt the user to press n key
-    public void nextMenu() {
-        System.out.println("\nPress n to go to the next menu.");
-        String command = input.next();
-        input.nextLine();
-        if (!command.equals("n")) {
-            System.out.println("\nYour command is invalid!");
-        }
+    // EFFECTS: return the display menu
+    public DisplayMenu getDisplayMenu() {
+        return this.menu;
     }
 
     // MODIFIES: this

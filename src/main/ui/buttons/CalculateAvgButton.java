@@ -12,14 +12,12 @@ import java.awt.event.ActionListener;
  * Button that handles average calculation of the courses on an account
  */
 public class CalculateAvgButton extends Button implements ActionListener {
-    private Account account;
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
     //          set the account as the input account
-    public CalculateAvgButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect, Account account) {
-        super(frame, panel, soundEffect);
-        this.account = account;
+    public CalculateAvgButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -36,8 +34,8 @@ public class CalculateAvgButton extends Button implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("calculateAverage")) {
-            soundEffect.play();
-            int average = account.calculateAverage();
+            frame.getSoundEffect().play();
+            int average = frame.getCurrentAccount().calculateAverage();
             JOptionPane.showMessageDialog(null,
                     "Your overall average is " + average + ".");
         }

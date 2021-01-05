@@ -14,8 +14,8 @@ public class LookForAccountButton extends Button implements ActionListener {
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
-    public LookForAccountButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect) {
-        super(frame, panel, soundEffect);
+    public LookForAccountButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -34,7 +34,7 @@ public class LookForAccountButton extends Button implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("lookForAccount")) {
-            soundEffect.play();
+            frame.getSoundEffect().play();
             frame.setPage(GraphicStudyApp.Page.SEARCH);
             frame.removeButtons();
             frame.renderSubmissionMenu();

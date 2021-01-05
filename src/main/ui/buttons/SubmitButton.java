@@ -14,15 +14,13 @@ import java.util.List;
  * Button that handles events of submitting user input
  */
 public class SubmitButton extends Button implements ActionListener {
-    private List<Account> accounts;
     private String userInput;
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
     //          set accounts as the input account list
-    public SubmitButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect, List<Account> accounts) {
-        super(frame, panel, soundEffect);
-        this.accounts = accounts;
+    public SubmitButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -40,7 +38,7 @@ public class SubmitButton extends Button implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("submit")) {
-            soundEffect.play();
+            frame.getSoundEffect().play();
             getStringInput();
             GraphicSubmissionManager manager = new GraphicSubmissionManager(frame, userInput);
             if (frame.getCurrentPage().equals(GraphicStudyApp.Page.SEARCH)) {

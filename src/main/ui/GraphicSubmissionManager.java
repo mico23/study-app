@@ -14,7 +14,6 @@ import java.util.List;
  */
 
 public class GraphicSubmissionManager {
-    private List<Account> accounts;
     private GraphicStudyApp frame;
     private String userInput;
 
@@ -23,19 +22,18 @@ public class GraphicSubmissionManager {
     public GraphicSubmissionManager(GraphicStudyApp frame, String userInput) {
         this.userInput = userInput;
         this.frame = frame;
-        this.accounts = frame.getAccounts();
     }
 
     // EFFECTS: constructor of the graphic submission manager
     //          it only takes GraphicStudyApp object as the input
     public GraphicSubmissionManager(GraphicStudyApp frame) {
         this.frame = frame;
-        this.accounts = frame.getAccounts();
     }
 
     // EFFECTS: process the user input to create an account
     //          return a popup message if the account already exists or input is invalid
     public void createAccount() {
+        List<Account> accounts = frame.getAccounts();
         if (!userInput.equals("")) {
             Account account = new Account(userInput);
             if (!accounts.contains(account)) {
@@ -53,10 +51,9 @@ public class GraphicSubmissionManager {
     // EFFECTS: process the user input to search for an account
     //          return a popup message if the account cannot be found
     public void searchAccount() {
-        Account account = lookForAccount(accounts, userInput);
+        Account account = lookForAccount(frame.getAccounts(), userInput);
         if (account != null) {
             returnToMainMenu(account);
-            frame.setPage(GraphicStudyApp.Page.COURSE);
         } else {
             JOptionPane.showMessageDialog(null, "Your input user name does not exists.",
                     null, JOptionPane.WARNING_MESSAGE, frame.getWarningIcon());

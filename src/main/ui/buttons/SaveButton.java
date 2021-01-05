@@ -13,13 +13,11 @@ import java.util.List;
  * Button that triggers functions to save the account information
  */
 public class SaveButton extends Button implements ActionListener {
-    private List<Account> accounts;
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
-    public SaveButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect, List<Account> accounts) {
-        super(frame, panel, soundEffect);
-        this.accounts = accounts;
+    public SaveButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -36,9 +34,9 @@ public class SaveButton extends Button implements ActionListener {
     //          play sound when the button is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
+        frame.getSoundEffect().play();
         if (e.getActionCommand().equals("save")) {
-            saveAccount(accounts);
-            soundEffect.play();
+            saveAccount();
         }
     }
 
@@ -47,8 +45,8 @@ public class SaveButton extends Button implements ActionListener {
      */
     // EFFECTS: saves the accounts to a Json file
     //          prompt a message when the saving process is complete
-    private void saveAccount(List<Account> accounts) {
-        soundEffect.play();
+    private void saveAccount() {
+        frame.getSoundEffect().play();
         frame.saveAccount();
     }
 }

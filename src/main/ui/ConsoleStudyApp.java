@@ -17,7 +17,6 @@ import java.util.Scanner;
 public class ConsoleStudyApp {
     private static final String JSON_DATA = "./data/studyApp.json";
     private Scanner input;
-    private DisplayMenu menu = new DisplayMenu();
     private List<Account> accounts = new ArrayList<>();
     private ConsoleAccountManager manager = new ConsoleAccountManager();
     private JsonWriter jsonWriter;
@@ -36,13 +35,12 @@ public class ConsoleStudyApp {
         jsonReader = new JsonReader(JSON_DATA);
 
         loadAccount();
-        manager.nextMenu();
 
         String command;
         input = new Scanner(System.in);
 
         while (keepGoing) {
-            menu.displayMenu();
+            manager.getDisplayMenu().displayMenu();
             command = input.next();
             input.nextLine();
             command = command.toLowerCase();
@@ -63,7 +61,7 @@ public class ConsoleStudyApp {
         String accountCommand;
 
         while (keepGoing) {
-            menu.displayAccountMenu(account);
+            manager.getDisplayMenu().displayAccountMenu(account);
             accountCommand = input.next();
             input.nextLine();
 
@@ -87,7 +85,6 @@ public class ConsoleStudyApp {
             }
         } else if (command.equals("2")) {
             Account account = manager.lookForAccount(accounts);
-            manager.nextMenu();
             if (account != null) {
                 runAccount(account);
             }
@@ -115,10 +112,9 @@ public class ConsoleStudyApp {
                 break;
             case "s":
                 saveAccount(account);
-                manager.nextMenu();
                 break;
             default:
-                menu.displayInvalidInputErrorMessage();
+                manager.getDisplayMenu().displayInvalidInputErrorMessage();
                 break;
         }
     }
@@ -137,7 +133,7 @@ public class ConsoleStudyApp {
             accounts.add(user);
             System.out.println("\nYour account has been created!");
         } else {
-            menu.displayInvalidInputErrorMessage();
+            manager.getDisplayMenu().displayInvalidInputErrorMessage();
         }
         return user;
     }
@@ -146,7 +142,7 @@ public class ConsoleStudyApp {
     //         exit the app if user press q
     //         prompt error message otherwise
     private boolean reminder(Account account) {
-        menu.displayReminder();
+        manager.getDisplayMenu().displayReminder();
         String command = input.next();
         input.nextLine();
         if (command.equals("s")) {
@@ -155,7 +151,7 @@ public class ConsoleStudyApp {
         } else if (command.equals("q")) {
             return false;
         } else {
-            menu.displayInvalidInputErrorMessage();
+            manager.getDisplayMenu().displayInvalidInputErrorMessage();
         }
         return true;
     }

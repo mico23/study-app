@@ -14,13 +14,13 @@ import java.util.List;
 public class CourseDropDownList implements ActionListener {
     private JComboBox courseList;
     private GraphicStudyApp frame;
-    private Account account;
+//    private Account account;
 
     // EFFECTS: constructor of CourseDropDownList
     //          it takes GraphicStudyApp object, JPanel object and Account object as the inputs
-    public CourseDropDownList(GraphicStudyApp frame, JPanel panel, Account account) {
+    public CourseDropDownList(GraphicStudyApp frame, JPanel panel) {
         this.frame = frame;
-        this.account = account;
+//        this.account = frame.getCurrentAccount();
         createCourseDropDownList(panel);
     }
 
@@ -29,7 +29,7 @@ public class CourseDropDownList implements ActionListener {
     //          the default selection is at Index 0
     public void createCourseDropDownList(JPanel panel) {
         //EFFECTS: Create the combo box, select item at index 0.
-        createCourseList(account);
+        createCourseList(frame.getCurrentAccount());
         courseList.setSelectedIndex(0);
         courseList.addActionListener(this);
         panel.add(courseList);
@@ -59,6 +59,6 @@ public class CourseDropDownList implements ActionListener {
 
     // EFFECTS: retrieve the course from an account
     public Course retrieveCourseInfo(String courseName) {
-        return account.getSpecificCourse(courseName);
+        return frame.getCurrentAccount().getSpecificCourse(courseName);
     }
 }

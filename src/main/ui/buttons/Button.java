@@ -13,15 +13,15 @@ import javax.swing.*;
 public abstract class Button {
     protected JButton button;
     protected GraphicStudyApp frame;
-    protected SoundEffect soundEffect;
+//    protected SoundEffect soundEffect;
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
-    public Button(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect) {
+    public Button(GraphicStudyApp frame, JPanel panel) {
         createButton(panel);
         this.button = configureButton(this.button);
         this.frame = frame;
-        this.soundEffect = soundEffect;
+//        this.soundEffect = frame.getSoundEffect();
     }
 
     // MODIFIES: this

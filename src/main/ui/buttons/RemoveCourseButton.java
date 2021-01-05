@@ -15,8 +15,8 @@ public class RemoveCourseButton extends Button implements ActionListener {
 
     // EFFECTS: Constructor of the button
     //          it takes GraphicStudyApp object, JPanel object and SoundEffect object as inputs
-    public RemoveCourseButton(GraphicStudyApp frame, JPanel panel, SoundEffect soundEffect) {
-        super(frame, panel, soundEffect);
+    public RemoveCourseButton(GraphicStudyApp frame, JPanel panel) {
+        super(frame, panel);
     }
 
     // MODIFIES: this
@@ -35,7 +35,7 @@ public class RemoveCourseButton extends Button implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("removeCourse")) {
-            soundEffect.play();
+            frame.getSoundEffect().play();
             GraphicSubmissionManager manager = new GraphicSubmissionManager(frame);
             manager.removeCourseFromAccount();
             frame.removeCourseMenu();
