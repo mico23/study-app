@@ -9,7 +9,7 @@ import java.io.File;
  * SoundEffect is to load the sound file and handle the method that plays the sound effect
  */
 public class SoundEffect {
-    public String source;
+    private String source;
     Clip clip;
 
     // MODIFIES: this
